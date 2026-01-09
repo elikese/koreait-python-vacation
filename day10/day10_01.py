@@ -95,3 +95,40 @@ with open("./data2.json", "r", encoding="utf-8") as f:
 # 해당 메뉴를 불러와서 "떡볶이: 5000원" 추가
 # 라면가격을 5000원으로 인상하여
 # 다시 menu.json으로 저장해주세요
+
+# menu.json 불러오기
+with open("./menu.json", "r", encoding="utf-8") as f:
+    menu_data = json.load(f)
+
+# dict 수정하기
+menu_data["떡볶이"] = 5000 # 없던key -> 추가
+menu_data["라면"] = 5000 # 있던key -> value 수정
+
+menu_data.update({
+    "떡볶이": 5000,
+    "라면": 5000
+})
+
+# menu.json 덮어쓰기
+with open("./menu.json", "w", encoding="utf-8") as f:
+    json.dump(menu_data, f, ensure_ascii=False, indent=4)
+
+
+# 함수: 반복되는 코드저장
+
+# json 불러오기 함수
+def load_json(path):
+    with open(path, "r", encoding="utf-8") as f:
+        json_data = json.load(f)
+        return json_data
+
+load_json("./menu.json")
+
+# json 저장하기 함수
+def save_json(path, data):
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=4)
+
+nums = [1,2,3,4,5]
+save_json("./nums.json", nums)
+print(load_json("./nums.json"))

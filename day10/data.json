@@ -1,5 +1,5 @@
 {
-  "name": "홍길동",
-  "age": 30,
-  "is_student": false
+    "name": "홍길동",
+    "age": 30,
+    "is_student": false
 }
