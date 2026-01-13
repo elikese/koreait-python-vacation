@@ -3,6 +3,7 @@
 # 안전하게 검증된 값만 저장하고 싶다.
 # 검증된 값들과 동작을 묶고 싶다.
 
+
 # 은행계좌 클래스
 class BankAccount:
     def __init__(self, name):
@@ -68,3 +69,26 @@ class Cup:
             return
 
         self.water -= amount
+
+
+
+class Player:
+    def __init__(self, _nickname, hp=100):
+        self._nickname = _nickname
+        self.hp = hp
+
+    def change_nickname(self, new_name):
+        self._nickname = new_name
+
+p1 = Player("홍길동")
+# 필드명앞에 '_'붙히면 직접접근할때 경고창.
+print(p1._nickname) # 객체정보에 접근
+print(p1.hp) # 객체정보에 접근
+
+# 직접 접근해서 변경까지 가능
+p1._nickname = "김길동"
+print(p1._nickname)
+
+# 동적으로 객체에 필드를 추가 가능
+p1.anything = "아무거나"
+print(p1.anything)
