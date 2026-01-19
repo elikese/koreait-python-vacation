@@ -18,6 +18,3 @@ if __name__ == "__main__":
     더하기함수(1, 2)
     p1 = Person("길동이", 20)
     p1.print_person()
-
-
-
